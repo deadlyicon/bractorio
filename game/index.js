@@ -38,13 +38,12 @@ class Game {
 
   constructor(state){
     this.state = state
-    this.rows = this.state.cells
   }
 
   mapEachCell(callback){
     const result = []
-    Game.forEachCell((y,x) => {
-      result.push(callback(this.state.map[y][x]))
+    Game.forEachCell(this.state, (y,x) => {
+      result.push(callback(this.state.cells[y][x]))
     })
     return result
   }
