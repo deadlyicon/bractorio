@@ -12,8 +12,16 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "autoprefixer": "^7.1.1",
+    "babel-plugin-wrap-in-js": "^1.1.1",
     "next": "^3.0.0-beta9",
+    "node-sass": "^4.5.3",
+    "normalize.css": "^7.0.0",
+    "postcss-easy-import": "^2.0.0",
+    "postcss-loader": "^2.0.5",
+    "raw-loader": "^0.5.1",
     "react": "^15.5.4",
-    "react-dom": "^15.5.4"
+    "react-dom": "^15.5.4",
+    "sass-loader": "^6.0.5"
   }
 }

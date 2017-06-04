@@ -1,7 +1,8 @@
 import Layout from '../components/Layout'
+import Game from '../components/Game'
 
 export default () => (
   <Layout>
-    <div>Well, thats rad!</div>
+    <Game />
   </Layout>
 )
