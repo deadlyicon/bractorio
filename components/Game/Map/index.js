@@ -3,9 +3,6 @@ import React from 'react'
 export default class extends React.Component {
   render(){
     const { game } = this.props
-    // const cells = game.mapEachCell(cell =>
-    //   <Cell key={`${cell.y}-${cell.x}`} cell={cell} />
-    // )
 
     const rows = game.rows.map((cells, index) =>
       <div className="Game-Map-Row" key={`row-${index}`}>

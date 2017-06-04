@@ -2,13 +2,27 @@ import map from './map'
 
 const localStorage = global.localStorage || {}
 
-const MAP_SIZE = 100
-
 class Game {
+
+  static initalState() {
+    const state = {
+      height: 101,
+      width: 101,
+      y: 51,
+      x: 51,
+    }
+    state.cells = []
+    Game.forEachCell(state, (y,x) => {
+      if (x === 0) state.cells[y] = []
+      state.cells[y][x] = {y,x}
+    })
+    return state
+  }
+
   static load(){
     const state = 'game' in localStorage
       ? JSON.parse(localStorage.game)
-      : initalState()
+      : this.initalState()
     return new Game(state)
   }
 
@@ -24,7 +38,6 @@ class Game {
 
   constructor(state){
     this.state = state
-
     this.rows = this.state.cells
   }
 
@@ -36,25 +49,5 @@ class Game {
     return result
   }
 }
-
-
-const initalState = () => {
-  const state = {
-    height: MAP_SIZE,
-    width: MAP_SIZE,
-  }
-  state.cells = generateMap(state)
-  return state
-}
-
-const generateMap = ({height, width}) => {
-  const cells = []
-  Game.forEachCell({height, width}, (y,x) => {
-    if (x === 0) cells[y] = []
-    cells[y][x] = {y,x}
-  })
-  return cells
-}
-
 
 export default Game.load()
